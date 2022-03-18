@@ -27,6 +27,11 @@ jobs:
           key: ${{ env.CACHE_KEY }}-${{ hashFiles('renv.lock') }}
           restore-keys: ${{ env.CACHE_KEY }}-
 
+      - name: install system dependencies
+        shell: bash 
+        run: |
+          apt-get install -y make; apt-get install -y libcurl4-openssl-dev; apt-get install -y libssl-dev; apt-get install -y libicu-dev; apt-get install -y libxml2-dev; apt-get install -y git; apt-get install -y pandoc; apt-get install -y zlib1g-dev
+        
       - name: Sync renv with lockfile
         shell: Rscript {0}
         run: |
