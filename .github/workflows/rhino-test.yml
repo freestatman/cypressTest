@@ -1,7 +1,11 @@
 name: Rhino Test
-on: push
+on: 
+  push:
+    branches:
+      - main
 permissions:
   contents: read
+
 jobs:
   main:
     name: Run linters and tests
