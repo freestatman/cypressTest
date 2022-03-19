@@ -81,3 +81,9 @@ jobs:
           working-directory: .rhino/node # Created by earlier commands which use Node.js
           start: yarn run-app
           project: root/tests
+
+      - name: Archive cypress test video
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-video-artifact
+          path: /home/runner/work/cypressTest/cypressTest/.rhino/node/root/tests/cypress/videos/app.spec.js.mp4
